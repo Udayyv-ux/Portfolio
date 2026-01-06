@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K. Uday Vardhan | AI/ML Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         :root {
             --bg: #050810;
@@ -14,216 +16,319 @@
             --text-main: #f1f5f9;
             --text-dim: #94a3b8;
             --border: rgba(255, 255, 255, 0.1);
-            --live-btn: #10b981;
+            --live: #10b981;
         }
 
         [data-theme="light"] {
             --bg: #f0f4f8;
-            --surface: rgba(255, 255, 255, 0.8);
+            --surface: rgba(255, 255, 255, 0.9);
             --accent: #0284c7;
-            --accent-glow: rgba(2, 132, 199, 0.2);
+            --accent-glow: rgba(2, 132, 199, 0.25);
             --text-main: #1e293b;
             --text-dim: #64748b;
-            --border: rgba(0, 0, 0, 0.05);
-            --live-btn: #059669;
+            --border: rgba(0, 0, 0, 0.08);
+            --live: #059669;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg);
+            font-family: Inter, system-ui, sans-serif;
+            background: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
             background-image: radial-gradient(circle at top right, var(--accent-glow), transparent 40%);
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 10%;
-            background: var(--surface);
-            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 10%;
+            background: var(--surface);
+            backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -1px; color: var(--accent); }
-        .logo span { color: var(--text-main); font-weight: 300; }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-weight: 300;
+        }
 
         #themeBtn {
-            cursor: pointer;
             background: var(--accent);
             border: none;
             color: white;
-            padding: 8px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            box-shadow: 0 4px 15px var(--accent-glow);
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 20px var(--accent-glow);
         }
 
-        section { padding: 100px 10%; }
+        section {
+            padding: 100px 10%;
+        }
 
-        .hero { text-align: center; padding: 120px 10% 80px; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 20px; font-weight: 800; letter-spacing: -2px; line-height: 1.1; }
-        .hero p { color: var(--text-dim); font-size: 1.25rem; max-width: 700px; margin: 0 auto; }
+        .hero {
+            text-align: center;
+            padding: 130px 10% 90px;
+        }
 
-        .section-title { font-size: 2.5rem; margin-bottom: 50px; font-weight: 800; letter-spacing: -1px; }
-        .section-title span { color: var(--accent); }
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 4.6rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            font-size: 1.25rem;
+            color: var(--text-dim);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
 
         .card {
             background: var(--surface);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 24px;
             border: 1px solid var(--border);
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 50px -20px rgba(0,0,0,0.4);
         }
 
-        .status-tag {
-            font-size: 0.7rem; font-weight: 700; color: var(--live-btn);
-            display: flex; align-items: center; gap: 8px; margin-bottom: 20px; letter-spacing: 1px;
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--live);
+            margin-bottom: 20px;
         }
 
         .pulse {
-            width: 8px; height: 8px; background: var(--live-btn); border-radius: 50%;
-            animation: pulse-ring 2s infinite;
+            width: 8px;
+            height: 8px;
+            background: var(--live);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.6); }
+            70% { box-shadow: 0 0 0 12px rgba(16,185,129,0); }
+            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
         }
 
-        .metric { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin: 15px 0; }
+        .metric {
+            margin: 15px 0;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
 
-        .btn-group { display: flex; gap: 12px; margin-top: 25px; }
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
         .btn {
-            padding: 12px 24px; border-radius: 12px; text-decoration: none;
-            font-weight: 700; font-size: 0.85rem; text-align: center; flex: 1;
+            flex: 1;
+            padding: 13px;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-align: center;
         }
-        .btn-live { background: var(--accent); color: white; box-shadow: 0 4px 15px var(--accent-glow); }
-        .btn-git { background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid var(--border); }
-        .btn:hover { filter: brightness(1.2); }
 
-        .workflow-card { padding: 30px; border-radius: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
-        .workflow-card i { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
-
-        footer { text-align: center; padding: 100px 10%; background: var(--surface); backdrop-filter: blur(20px); }
-        
-        .social-links a {
-            font-size: 1.8rem; margin: 0 15px; color: var(--text-main); text-decoration: none; opacity: 0.7;
+        .btn-live {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 6px 20px var(--accent-glow);
         }
-        .social-links a:hover { opacity: 1; color: var(--accent); transform: scale(1.2); }
 
-        @media (max-width: 768px) { section { padding: 60px 5%; } .hero h1 { font-size: 2.8rem; } }
+        .btn-git {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            text-align: center;
+            padding: 100px 10%;
+        }
+
+        .social a {
+            font-size: 1.8rem;
+            margin: 0 18px;
+            color: var(--text-main);
+            opacity: 0.7;
+        }
+
+        .social a:hover {
+            opacity: 1;
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 70px 6%; }
+            .hero { padding-top: 100px; }
+        }
     </style>
 </head>
+
 <body data-theme="dark">
 
-    <nav>
-        <div class="logo">UDAY<span>VARDHAN</span></div>
-        <div class="nav-right">
-            <button id="themeBtn">SWITCH THEME</button>
-        </div>
-    </nav>
+<nav>
+    <div class="logo">UDAY<span>VARDHAN</span></div>
+    <button id="themeBtn">SWITCH THEME</button>
+</nav>
 
-    <header class="hero">
-        <h1>Building the <span>Future</span> of Intelligence.</h1>
-        <p>B.Tech CSE (AIML) Student @ Malla Reddy University. Specializing in high-accuracy predictive models and real-time AI deployments.</p>
-    </header>
+<header class="hero">
+    <h1>Engineering the <span>Future</span> of AI</h1>
+    <p>B.Tech CSE (AIML) @ Malla Reddy University • Focused on scalable ML systems and real-time AI deployments</p>
+</header>
 
-    <section id="workflow">
-        <h2 class="section-title">The <span>Workflow</span></h2>
-        <div class="grid">
-            <div class="workflow-card">
-                <i class="fas fa-microchip"></i>
-                <h3>Engineering</h3>
-                <p style="color: var(--text-dim); margin-top:10px;">End-to-end data preprocessing and feature extraction using Pandas & NumPy.</p>
-            </div>
-            <div class="workflow-card">
-                <i class="fas fa-brain"></i>
-                <h3>Modeling</h3>
-                <p style="color: var(--text-dim); margin-top:10px;">Deep Learning & Statistical models built with TensorFlow and Scikit-learn.</p>
-            </div>
-            <div class="workflow-card">
-                <i class="fas fa-rocket"></i>
-                <h3>Deployment</h3>
-                <p style="color: var(--text-dim); margin-top:10px;">Production-ready AI interfaces delivered via the Streamlit cloud ecosystem.</p>
+<section id="projects">
+    <h2 class="section-title">Live <span>Deployments</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="status"><span class="pulse"></span> NLP SYSTEM</div>
+            <h3>AmbiSense AI</h3>
+            <p style="color: var(--text-dim); margin-top: 10px;">
+                Deep learning spam detection platform powered by BiLSTM neural networks for real-time message analysis.
+            </p>
+            <div class="metric">97% Accuracy</div>
+            <div class="btn-group">
+                <a href="https://ambisenseai.streamlit.app/" class="btn btn-live" target="_blank">Launch App</a>
+                <a href="https://github.com/udayyv-ux/ambisense-ai" class="btn btn-git" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
-    </section>
 
-    <section id="projects">
-        <h2 class="section-title">Live <span>Deployments</span></h2>
-        <div class="grid">
-            <div class="card">
-                <div class="status-tag"><span class="pulse"></span> LIVE SYSTEMS</div>
-                <h3>Tyson The Bot</h3>
-                <p style="color: var(--text-dim); margin-top: 10px;">An advanced AI assistant designed for seamless conversational logic and user interaction.</p>
-                <div class="btn-group">
-                    <a href="https://tyson-the-bot-uday.streamlit.app/" class="btn btn-live" target="_blank">Launch Bot</a>
-                    <a href="https://github.com/udayyv-ux" class="btn btn-git" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="status-tag"><span class="pulse"></span> ACTIVE MODEL</div>
-                <h3>Music Recommender</h3>
-                <p style="color: var(--text-dim); margin-top: 10px;">Personalized suggestion engine powered by Cosine Similarity and vector space modeling.</p>
-                <div class="metric">91% Accuracy</div>
-                <div class="btn-group">
-                    <a href="https://song-recommendation-udayyv-ux.streamlit.app/" class="btn btn-live" target="_blank">Try App</a>
-                    <a href="https://github.com/udayyv-ux" class="btn btn-git" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="status-tag"><span class="pulse"></span> SECURITY ML</div>
-                <h3>Fraud Detection</h3>
-                <p style="color: var(--text-dim); margin-top: 10px;">Financial anomaly detection utilizing K-means clustering for high-risk pattern recognition.</p>
-                <div class="metric">83% Accuracy</div>
-                <div class="btn-group">
-                    <a href="https://fraud-transaction-app-uday.streamlit.app/" class="btn btn-live" target="_blank">Try App</a>
-                    <a href="https://github.com/udayyv-ux" class="btn btn-git" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
+        <div class="card">
+            <div class="status"><span class="pulse"></span> AI ASSISTANT</div>
+            <h3>Tyson The Bot</h3>
+            <p style="color: var(--text-dim); margin-top: 10px;">
+                Conversational AI assistant engineered for fluid dialogue and contextual reasoning.
+            </p>
+            <div class="btn-group">
+                <a href="https://tyson-the-bot-uday.streamlit.app/" class="btn btn-live" target="_blank">Launch Bot</a>
+                <a href="https://github.com/udayyv-ux" class="btn btn-git" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <h2 style="margin-bottom: 30px;">Let's <span>Collaborate</span></h2>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/udayvardhan/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/udayyv-ux" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:udayyyv@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <div class="card">
+            <div class="status"><span class="pulse"></span> RECOMMENDER</div>
+            <h3>Music Recommendation System</h3>
+            <p style="color: var(--text-dim); margin-top: 10px;">
+                Personalized song recommendation engine using cosine similarity and vector embeddings.
+            </p>
+            <div class="metric">91% Accuracy</div>
+            <div class="btn-group">
+                <a href="https://song-recommendation-udayyv-ux.streamlit.app/" class="btn btn-live" target="_blank">Try App</a>
+                <a href="https://github.com/udayyv-ux" class="btn btn-git" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </div>
-        <p style="margin-top: 40px; color: var(--text-dim); font-size: 0.9rem;">© 2026 K. Uday Vardhan | Hyderabad, India</p>
-    </footer>
 
-    <script>
-        const themeBtn = document.getElementById('themeBtn');
-        const body = document.body;
+        <div class="card">
+            <div class="status"><span class="pulse"></span> SECURITY ML</div>
+            <h3>Fraud Detection System</h3>
+            <p style="color: var(--text-dim); margin-top: 10px;">
+                Financial anomaly detection leveraging K-Means clustering for risk pattern discovery.
+            </p>
+            <div class="metric">83% Accuracy</div>
+            <div class="btn-group">
+                <a href="https://fraud-transaction-app-uday.streamlit.app/" class="btn btn-live" target="_blank">Try App</a>
+                <a href="https://github.com/udayyv-ux" class="btn btn-git" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
 
-        themeBtn.addEventListener('click', () => {
-            const current = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-            themeBtn.textContent = current === 'dark' ? 'DARK MODE' : 'LIGHT MODE';
-        });
-    </script>
+    </div>
+</section>
+
+<footer>
+    <h2>Let’s <span style="color:var(--accent)">Collaborate</span></h2>
+    <div class="social" style="margin-top: 30px;">
+        <a href="https://www.linkedin.com/in/udayvardhan/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/udayyv-ux" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:udayyyv@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p style="margin-top: 40px; color: var(--text-dim); font-size: 0.9rem;">
+        © 2026 K. Uday Vardhan | Hyderabad, India
+    </p>
+</footer>
+
+<script>
+    const btn = document.getElementById("themeBtn");
+    const body = document.body;
+
+    btn.addEventListener("click", () => {
+        const theme = body.getAttribute("data-theme");
+        body.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
+        btn.textContent = theme === "dark" ? "DARK MODE" : "LIGHT MODE";
+    });
+</script>
+
 </body>
 </html>
